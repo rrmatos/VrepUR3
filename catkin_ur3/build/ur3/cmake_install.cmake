@@ -1,8 +1,8 @@
-# Install script for directory: /home/rafael/VrepUR3/catkin_ur3/src/ur3
+# Install script for directory: /home/scara/VrepUR3/catkin_ur3/src/ur3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/rafael/VrepUR3/catkin_ur3/install")
+  set(CMAKE_INSTALL_PREFIX "/home/scara/VrepUR3/catkin_ur3/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,54 +38,54 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3/msg" TYPE FILE FILES "/home/rafael/VrepUR3/catkin_ur3/src/ur3/msg/end_Effector_msg.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3/msg" TYPE FILE FILES "/home/scara/VrepUR3/catkin_ur3/src/ur3/msg/end_Effector_msg.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3/cmake" TYPE FILE FILES "/home/rafael/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3/cmake" TYPE FILE FILES "/home/scara/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/rafael/VrepUR3/catkin_ur3/devel/include/ur3")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/scara/VrepUR3/catkin_ur3/devel/include/ur3")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/rafael/VrepUR3/catkin_ur3/devel/share/roseus/ros/ur3")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/scara/VrepUR3/catkin_ur3/devel/share/roseus/ros/ur3")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/rafael/VrepUR3/catkin_ur3/devel/share/common-lisp/ros/ur3")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/scara/VrepUR3/catkin_ur3/devel/share/common-lisp/ros/ur3")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/rafael/VrepUR3/catkin_ur3/devel/share/gennodejs/ros/ur3")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/scara/VrepUR3/catkin_ur3/devel/share/gennodejs/ros/ur3")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/rafael/VrepUR3/catkin_ur3/devel/lib/python2.7/dist-packages/ur3")
+  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/scara/VrepUR3/catkin_ur3/devel/lib/python2.7/dist-packages/ur3")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/rafael/VrepUR3/catkin_ur3/devel/lib/python2.7/dist-packages/ur3")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/scara/VrepUR3/catkin_ur3/devel/lib/python2.7/dist-packages/ur3")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/rafael/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/scara/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3/cmake" TYPE FILE FILES "/home/rafael/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3/cmake" TYPE FILE FILES "/home/scara/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3/cmake" TYPE FILE FILES
-    "/home/rafael/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3Config.cmake"
-    "/home/rafael/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3Config-version.cmake"
+    "/home/scara/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3Config.cmake"
+    "/home/scara/VrepUR3/catkin_ur3/build/ur3/catkin_generated/installspace/ur3Config-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3" TYPE FILE FILES "/home/rafael/VrepUR3/catkin_ur3/src/ur3/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur3" TYPE FILE FILES "/home/scara/VrepUR3/catkin_ur3/src/ur3/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -95,7 +95,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libread_data.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/rafael/VrepUR3/catkin_ur3/devel/lib/libread_data.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/scara/VrepUR3/catkin_ur3/devel/lib/libread_data.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libread_data.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libread_data.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -105,6 +105,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/rafael/VrepUR3/catkin_ur3/src/ur3/src/read_data.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/scara/VrepUR3/catkin_ur3/src/ur3/src/read_data.h")
 endif()
 

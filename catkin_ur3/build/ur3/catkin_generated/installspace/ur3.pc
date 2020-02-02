@@ -1,4 +1,4 @@
-prefix=/home/rafael/VrepUR3/catkin_ur3/install
+prefix=/home/scara/VrepUR3/catkin_ur3/install
 
 Name: ur3
 Description: Description of ur3
