@@ -1,3 +1,5 @@
+// Quem olhar é gay 
+// Se continuar lendo a mãe é puta
 
 #include "ros/ros.h"
 #include <boost/thread/thread.hpp>
