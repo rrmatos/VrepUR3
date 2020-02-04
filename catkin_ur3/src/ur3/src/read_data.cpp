@@ -9,7 +9,7 @@
 using namespace std;
 float** read_data(){
     
-    ifstream theFile("vel1to6_err.csv");
+    ifstream theFile("test.csv");
     string line, temp;
     int i = 0,j = 0 ;
 	float** data = new float*[10000];

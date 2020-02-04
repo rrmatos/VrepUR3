@@ -68,7 +68,7 @@ int main(int argc, char **argv){
 	arm.name[0] = "Joint_1";
 	arm.name[1] = "Joint_2";
     
-	// float** data_input = read_data(); 
+	float** data_input = read_data(); 
 	int count_simple = 0;
 	//////////////////////////////////////////////////////////
 
@@ -83,14 +83,14 @@ int main(int argc, char **argv){
 		arm.velocity[1] = joint2[1];
 		arm.effort[1] = joint2[2];
 
-		vel_arm.data[0] = 2*sin(count_simple/10.0);
-		vel_arm.data[1] = -3*sin(count_simple/10.0);
+		vel_arm.data[0] = data_input[0][count_simple];//2*sin(count_simple/10.0);
+		vel_arm.data[1] = data_input[1][count_simple];//-3*sin(count_simple/10.0);
 		
 		arm.header.stamp = ros::Time::now();
 
 		arm_pub.publish(arm);
 		vel_pub.publish(vel_arm);
-		if(count_simple >= 5000){
+		if(count_simple >= 500){
 			stopSimulation.publish(stopSim);
 			break;
 		}
