@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/devel:$CMAKE_PREFIX_PATH"
-export PWD="/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src:$ROS_PACKAGE_PATH"
+export LD_LIBRARY_PATH="/opt/ros/melodic/lib"
+export PKG_CONFIG_PATH="/opt/ros/melodic/lib/pkgconfig"
+export PWD="/home/scara/VrepUR3/catkin_ur3/build"
+export PYTHONPATH="/opt/ros/melodic/lib/python2.7/dist-packages"

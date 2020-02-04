@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ur3_generate_messages_lisp"
-  "/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/devel/share/common-lisp/ros/ur3/msg/end_Effector_msg.lisp"
+  "/home/scara/VrepUR3/catkin_ur3/devel/share/common-lisp/ros/ur3/msg/end_Effector_msg.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

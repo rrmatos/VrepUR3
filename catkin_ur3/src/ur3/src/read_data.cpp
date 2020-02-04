@@ -24,7 +24,7 @@ float** read_data(){
             //cout << data[i][j] << '|';
             j++;
         }
-        //cout << endl;
+       // cout << endl;
         i++;
         
     }
