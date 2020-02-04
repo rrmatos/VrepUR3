@@ -14,7 +14,7 @@ float** read_data(){
     int i = 0,j = 0 ;
 	float** data = new float*[10000];
 	for (int l = 0; l < 10000; ++l){
-   		data[l] = new float[6];
+   		data[l] = new float[2];
 	}
     while(getline(theFile, line, '\n')){
         j = 0;

@@ -4,6 +4,8 @@
 #include "ros/ros.h"
 #include <boost/thread/thread.hpp>
 #include "sensor_msgs/JointState.h"
+#include "std_msgs/Float64MultiArray.h"
+#include "read_data.h"
 #include "std_msgs/Bool.h"
 #include <stdio.h>   
 #include <string.h>  
@@ -33,8 +35,9 @@ int main(int argc, char **argv){
 	ros::NodeHandle node;
 	//Declaração das publicões 
 	ros::Publisher arm_pub = node.advertise<sensor_msgs::JointState>("arm",10);
-	ros::Publisher startS = node.advertise<std_msgs::Bool>("startSimulation",1);
-	ros::Publisher stopS = node.advertise<std_msgs::Bool>("stopSimulation",1);
+	ros::Publisher vel_pub = node.advertise<std_msgs::Float64MultiArray>("ref_vel",10);
+	ros::Publisher startSimulation = node.advertise<std_msgs::Bool>("startSimulation",1);
+	ros::Publisher stopSimulation = node.advertise<std_msgs::Bool>("stopSimulation",1);
 	std_msgs::Bool startSim;
 	startSim.data = true; 
 	std_msgs::Bool stopSim;
@@ -42,7 +45,7 @@ int main(int argc, char **argv){
 	
 	ros::Rate loop_rate1(10);
 	while (ros::ok()){
-		startS.publish(startSim);
+		startSimulation.publish(startSim);
 		x++;
 		if(x > 5){break;}
 		ros::spinOnce();
@@ -53,6 +56,9 @@ int main(int argc, char **argv){
     ///////////////////////////////////////////////////////////////////////////////////////
 	ros::Rate loop_rate(20);
 	//Declaração das estruturas de dados para as publicações
+	std_msgs::Float64MultiArray vel_arm; 
+	vel_arm.data.resize(2);
+
 	sensor_msgs::JointState arm;
 	arm.header.frame_id = " ";
 	arm.name.resize(2);
@@ -61,7 +67,8 @@ int main(int argc, char **argv){
 	arm.effort.resize(2); 
 	arm.name[0] = "Joint_1";
 	arm.name[1] = "Joint_2";
-
+    
+	// float** data_input = read_data(); 
 	int count_simple = 0;
 	//////////////////////////////////////////////////////////
 
@@ -75,12 +82,16 @@ int main(int argc, char **argv){
 		arm.position[1] = joint2[0];
 		arm.velocity[1] = joint2[1];
 		arm.effort[1] = joint2[2];
+
+		vel_arm.data[0] = 2*sin(count_simple/10.0);
+		vel_arm.data[1] = -3*sin(count_simple/10.0);
 		
 		arm.header.stamp = ros::Time::now();
 
 		arm_pub.publish(arm);
-		if(count_simple >= 500){
-			stopS.publish(stopSim);
+		vel_pub.publish(vel_arm);
+		if(count_simple >= 5000){
+			stopSimulation.publish(stopSim);
 			break;
 		}
 		count_simple++;
