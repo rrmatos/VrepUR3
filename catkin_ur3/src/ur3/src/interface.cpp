@@ -70,6 +70,7 @@ int main(int argc, char **argv){
     
 	float** data_input = read_data(); 
 	int count_simple = 0;
+	
 	//////////////////////////////////////////////////////////
 
 	printf("UR3 is ready!\n");
@@ -83,14 +84,14 @@ int main(int argc, char **argv){
 		arm.velocity[1] = joint2[1];
 		arm.effort[1] = joint2[2];
 
-		vel_arm.data[0] = 3*data_input[count_simple][0];//2*sin(count_simple/10.0);
-		vel_arm.data[1] = 3*data_input[count_simple][1];//-3*sin(count_simple/10.0);
+		vel_arm.data[0] = data_input[count_simple][0];//2*sin(count_simple/10.0);
+		vel_arm.data[1] = data_input[count_simple][1];//-3*sin(count_simple/10.0);
 		
 		arm.header.stamp = ros::Time::now();
 
 		arm_pub.publish(arm);
 		vel_pub.publish(vel_arm);
-		if(count_simple >= 500){
+		if(count_simple >= 2000){
 			stopSimulation.publish(stopSim);
 			break;
 		}
