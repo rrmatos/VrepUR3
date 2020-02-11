@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/scara/VrepUR3/catkin_ur3/src/ur3/include/ur3/read_data.h
+/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src/ur3/include/ur3/read_data.h
 sstream
 -
 iostream
@@ -16,19 +16,19 @@ stdio.h
 fstream
 -
 
-/home/scara/VrepUR3/catkin_ur3/src/ur3/src/interface.cpp
+/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src/ur3/src/interface.cpp
 ros/ros.h
-/home/scara/VrepUR3/catkin_ur3/src/ur3/src/ros/ros.h
+/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src/ur3/src/ros/ros.h
 boost/thread/thread.hpp
 -
 sensor_msgs/JointState.h
-/home/scara/VrepUR3/catkin_ur3/src/ur3/src/sensor_msgs/JointState.h
+/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src/ur3/src/sensor_msgs/JointState.h
 std_msgs/Float64MultiArray.h
-/home/scara/VrepUR3/catkin_ur3/src/ur3/src/std_msgs/Float64MultiArray.h
+/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src/ur3/src/std_msgs/Float64MultiArray.h
 read_data.h
-/home/scara/VrepUR3/catkin_ur3/src/ur3/src/read_data.h
+/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src/ur3/src/read_data.h
 std_msgs/Bool.h
-/home/scara/VrepUR3/catkin_ur3/src/ur3/src/std_msgs/Bool.h
+/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src/ur3/src/std_msgs/Bool.h
 stdio.h
 -
 string.h
@@ -44,7 +44,7 @@ inttypes.h
 unistd.h
 -
 
-/home/scara/VrepUR3/catkin_ur3/src/ur3/src/read_data.cpp
+/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/src/ur3/src/read_data.cpp
 sstream
 -
 fstream

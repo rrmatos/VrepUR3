@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/interface.dir/src/interface.cpp.o"
   "CMakeFiles/interface.dir/src/read_data.cpp.o"
-  "/home/scara/VrepUR3/catkin_ur3/devel/lib/ur3/interface.pdb"
-  "/home/scara/VrepUR3/catkin_ur3/devel/lib/ur3/interface"
+  "/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/devel/lib/ur3/interface.pdb"
+  "/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/devel/lib/ur3/interface"
 )
 
 # Per-language clean rules from dependency scanning.
