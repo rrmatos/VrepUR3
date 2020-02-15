@@ -43,11 +43,11 @@ int main(int argc, char **argv){
 	std_msgs::Bool stopSim;
 	stopSim.data = true; 
 	
-	ros::Rate loop_rate1(10);
+	ros::Rate loop_rate1(20);
 	while (ros::ok()){
 		startSimulation.publish(startSim);
 		x++;
-		if(x > 5){break;}
+		if(x > 10){break;}
 		ros::spinOnce();
 		loop_rate1.sleep();
 		}
@@ -70,19 +70,35 @@ int main(int argc, char **argv){
     
 	float** data_input = read_data(); 
 	int count_simple = 0;
-	
+	float w_mais1 = 0, w_menos1 = 0, alpha1 = 0;
+	float w_mais2 = 0, w_menos2 = 0, alpha2 = 0;
+	float tm1 = 0, tm2 = 0; 
 	//////////////////////////////////////////////////////////
-
+	
 	printf("UR3 is ready!\n");
 	
     while (ros::ok()){
-		arm.position[0] = joint1[0];
-		arm.velocity[0] = joint1[1];
-		arm.effort[0] = joint1[2];
 
 		arm.position[1] = joint2[0];
 		arm.velocity[1] = joint2[1];
-		arm.effort[1] = joint2[2];
+		
+		w_mais2 = arm.velocity[1];
+		alpha2 = (w_mais2 - w_menos2)/0.05;
+		w_menos2 = w_mais2;
+
+		tm2 = 0.02*alpha2 - joint2[2];
+		arm.effort[1] = tm2;
+
+
+		arm.position[0] = joint1[0];
+		arm.velocity[0] = joint1[1];
+		
+		w_mais1 = arm.velocity[0];
+		alpha1 = (w_mais1 - w_menos1)/0.05;
+		w_menos1 = w_mais1;
+
+		tm1 = 0.02*alpha1 - joint1[2];
+		arm.effort[0] = tm1;
 
 		vel_arm.data[0] = data_input[count_simple][0];//2*sin(count_simple/10.0);
 		vel_arm.data[1] = data_input[count_simple][1];//-3*sin(count_simple/10.0);
