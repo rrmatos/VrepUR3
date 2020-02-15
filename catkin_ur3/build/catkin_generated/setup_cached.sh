@@ -7,4 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/rafael/UR3_Proj/VrepUR3/catkin_ur3/build"
+export CMAKE_PREFIX_PATH="/home/scara/VrepUR3/catkin_ur3/devel:$CMAKE_PREFIX_PATH"
+export PWD="/home/scara/VrepUR3/catkin_ur3/build"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/scara/VrepUR3/catkin_ur3/devel/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/scara/VrepUR3/catkin_ur3/src:$ROS_PACKAGE_PATH"

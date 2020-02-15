@@ -72,7 +72,8 @@ int main(int argc, char **argv){
 	int count_simple = 0;
 	float w_mais1 = 0, w_menos1 = 0, alpha1 = 0;
 	float w_mais2 = 0, w_menos2 = 0, alpha2 = 0;
-	float tm1 = 0, tm2 = 0; 
+	float tm1 = 0, tm2 = 0, I1 = 0.235, I2 = 0.24;
+
 	//////////////////////////////////////////////////////////
 	
 	printf("UR3 is ready!\n");
@@ -86,7 +87,7 @@ int main(int argc, char **argv){
 		alpha2 = (w_mais2 - w_menos2)/0.05;
 		w_menos2 = w_mais2;
 
-		tm2 = 0.02*alpha2 - joint2[2];
+		tm2 = I2*alpha2 - joint2[2];
 		arm.effort[1] = tm2;
 
 
@@ -97,7 +98,7 @@ int main(int argc, char **argv){
 		alpha1 = (w_mais1 - w_menos1)/0.05;
 		w_menos1 = w_mais1;
 
-		tm1 = 0.02*alpha1 - joint1[2];
+		tm1 = I1*alpha1 - joint1[2];
 		arm.effort[0] = tm1;
 
 		vel_arm.data[0] = data_input[count_simple][0];//2*sin(count_simple/10.0);
