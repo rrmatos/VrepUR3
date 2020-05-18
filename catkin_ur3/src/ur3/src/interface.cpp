@@ -15,7 +15,7 @@
 #include <inttypes.h>
 #include <unistd.h>
 
-float joint1[3], joint2[3];
+float joint1[3], joint2[3], joint3[3], joint4[3], joint5[3], joint6[3];
 ///////////////////////////////////////
 void jointState_Callback(const sensor_msgs::JointState::ConstPtr &ur3){
 	joint1[0] = ur3->position[0];
@@ -25,6 +25,22 @@ void jointState_Callback(const sensor_msgs::JointState::ConstPtr &ur3){
 	joint2[0] = ur3->position[1];
 	joint2[1] = ur3->velocity[1];
 	joint2[2] = ur3->effort[1];
+
+	joint3[0] = ur3->position[2];
+	joint3[1] = ur3->velocity[2];
+	joint3[2] = ur3->effort[2];
+
+	joint4[0] = ur3->position[3];
+	joint4[1] = ur3->velocity[3];
+	joint4[2] = ur3->effort[3];
+
+	joint5[0] = ur3->position[4];
+	joint5[1] = ur3->velocity[4];
+	joint5[2] = ur3->effort[4];
+
+	joint6[0] = ur3->position[5];
+	joint6[1] = ur3->velocity[5];
+	joint6[2] = ur3->effort[5];
 	
 }
 ///////////////////////////////////////
@@ -35,7 +51,7 @@ int main(int argc, char **argv){
 	ros::NodeHandle node;
 	//Declaração das publicões 
 	ros::Publisher arm_pub = node.advertise<sensor_msgs::JointState>("arm",10);
-	ros::Publisher vel_pub = node.advertise<std_msgs::Float64MultiArray>("ref_vel",10);
+	ros::Publisher vel_pub = node.advertise<std_msgs::Float64MultiArray>("ref_vel",100);
 	ros::Publisher startSimulation = node.advertise<std_msgs::Bool>("startSimulation",1);
 	ros::Publisher stopSimulation = node.advertise<std_msgs::Bool>("stopSimulation",1);
 	std_msgs::Bool startSim;
@@ -52,27 +68,29 @@ int main(int argc, char **argv){
 		loop_rate1.sleep();
 		}
 	///////////////////////////////////////////////////////////////////////////////////
-	ros::Subscriber sub_joint_state = node.subscribe("arm2D", 10, jointState_Callback);
+	ros::Subscriber sub_joint_state = node.subscribe("ur3_vrep", 100, jointState_Callback);
     ///////////////////////////////////////////////////////////////////////////////////////
 	ros::Rate loop_rate(20);
 	//Declaração das estruturas de dados para as publicações
 	std_msgs::Float64MultiArray vel_arm; 
-	vel_arm.data.resize(2);
+	vel_arm.data.resize(6);
 
 	sensor_msgs::JointState arm;
 	arm.header.frame_id = " ";
-	arm.name.resize(2);
-	arm.position.resize(2);
-	arm.velocity.resize(2);
-	arm.effort.resize(2); 
+	arm.name.resize(6);
+	arm.position.resize(6);
+	arm.velocity.resize(6);
+	arm.effort.resize(6); 
 	arm.name[0] = "Joint_1";
 	arm.name[1] = "Joint_2";
+	arm.name[0] = "Joint_3";
+	arm.name[1] = "Joint_4";
+	arm.name[0] = "Joint_5";
+	arm.name[1] = "Joint_6";
     
 	float** data_input = read_data(); 
 	int count_simple = 0;
-	float w_mais1 = 0, w_menos1 = 0, alpha1 = 0;
-	float w_mais2 = 0, w_menos2 = 0, alpha2 = 0;
-	float tm1 = 0, tm2 = 0, I1 = 0.235, I2 = 0.24;
+
 
 	//////////////////////////////////////////////////////////
 	
@@ -80,29 +98,36 @@ int main(int argc, char **argv){
 	
     while (ros::ok()){
 
-		arm.position[1] = joint2[0];
-		arm.velocity[1] = joint2[1];
-		
-		w_mais2 = arm.velocity[1];
-		alpha2 = (w_mais2 - w_menos2)/0.05;
-		w_menos2 = w_mais2;
-
-		tm2 = I2*alpha2 - joint2[2];
-		arm.effort[1] = tm2;
-
-
 		arm.position[0] = joint1[0];
 		arm.velocity[0] = joint1[1];
+		arm.effort[0] = joint1[2];
 		
-		w_mais1 = arm.velocity[0];
-		alpha1 = (w_mais1 - w_menos1)/0.05;
-		w_menos1 = w_mais1;
+		arm.position[1] = joint2[0];
+		arm.velocity[1] = joint2[1];
+		arm.effort[1] = joint2[2];
 
-		tm1 = I1*alpha1 - joint1[2];
-		arm.effort[0] = tm1;
+		arm.position[2] = joint3[0];
+		arm.velocity[2] = joint3[1];
+		arm.effort[2] = joint3[2];
 
-		vel_arm.data[0] = data_input[count_simple][0];//2*sin(count_simple/10.0);
-		vel_arm.data[1] = data_input[count_simple][1];//-3*sin(count_simple/10.0);
+		arm.position[3] = joint4[0];
+		arm.velocity[3] = joint4[1];
+		arm.effort[3] = joint4[2];
+
+		arm.position[4] = joint5[0];
+		arm.velocity[4] = joint5[1];
+		arm.effort[4] = joint5[2];
+
+		arm.position[5] = joint6[0];
+		arm.velocity[5] = joint6[1];
+		arm.effort[5] = joint6[2];
+	
+		vel_arm.data[0] = sin(count_simple/20.0);
+		vel_arm.data[1] = cos(count_simple/20.0);
+		vel_arm.data[2] = cos(count_simple/20.0);
+		vel_arm.data[3] = cos(count_simple/20.0);
+		vel_arm.data[4] = sin(count_simple/20.0);
+		vel_arm.data[5] = cos(count_simple/20.0);
 		
 		arm.header.stamp = ros::Time::now();
 
