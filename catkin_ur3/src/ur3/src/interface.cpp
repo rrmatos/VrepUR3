@@ -7,6 +7,7 @@
 #include "std_msgs/Float64MultiArray.h"
 #include "read_data.h"
 #include "std_msgs/Bool.h"
+#include "std_msgs/Float64.h"
 #include <stdio.h>   
 #include <string.h>  
 #include <string> 
@@ -16,6 +17,8 @@
 #include <unistd.h>
 
 float joint1[3], joint2[3], joint3[3], joint4[3], joint5[3], joint6[3];
+
+float float_vel = 0;
 ///////////////////////////////////////
 void jointState_Callback(const sensor_msgs::JointState::ConstPtr &ur3){
 	joint1[0] = ur3->position[0];
@@ -43,7 +46,17 @@ void jointState_Callback(const sensor_msgs::JointState::ConstPtr &ur3){
 	joint6[2] = ur3->effort[5];
 	
 }
-///////////////////////////////////////
+//////////////////////////////////////
+
+void ref_vel_callback(const std_msgs::Float64::ConstPtr& msg_float) {
+// ROS_INFO("Recebido [%d]",msg->data);
+
+	float_vel = msg_float->data;
+}
+
+
+
+/////////////////////////////////////
 int main(int argc, char **argv){ 
 	int x = 0;
 	ros::init(argc, argv, "ur3");
@@ -63,12 +76,14 @@ int main(int argc, char **argv){
 	while (ros::ok()){
 		startSimulation.publish(startSim);
 		x++;
-		if(x > 10){break;}
+		if(x > 20){break;}
 		ros::spinOnce();
 		loop_rate1.sleep();
 		}
 	///////////////////////////////////////////////////////////////////////////////////
 	ros::Subscriber sub_joint_state = node.subscribe("ur3_vrep", 100, jointState_Callback);
+
+	ros::Subscriber sub_ref_vel = node.subscribe("vel_float", 100, ref_vel_callback);
     ///////////////////////////////////////////////////////////////////////////////////////
 	ros::Rate loop_rate(20);
 	//Declaração das estruturas de dados para as publicações
@@ -122,18 +137,25 @@ int main(int argc, char **argv){
 		arm.velocity[5] = joint6[1];
 		arm.effort[5] = joint6[2];
 	
-		vel_arm.data[0] = sin(count_simple/20.0);
-		vel_arm.data[1] = cos(count_simple/20.0);
-		vel_arm.data[2] = cos(count_simple/20.0);
-		vel_arm.data[3] = cos(count_simple/20.0);
-		vel_arm.data[4] = sin(count_simple/20.0);
-		vel_arm.data[5] = cos(count_simple/20.0);
+		// vel_arm.data[0] = sin(count_simple/20.0);
+		// vel_arm.data[1] = cos(count_simple/20.0);
+		// vel_arm.data[2] = cos(count_simple/20.0);
+		// vel_arm.data[3] = cos(count_simple/20.0);
+		// vel_arm.data[4] = sin(count_simple/20.0);
+		// vel_arm.data[5] = cos(count_simple/20.0);
+
+		vel_arm.data[0] = float_vel - joint1[1];
+		vel_arm.data[1] = float_vel - joint2[1];
+		vel_arm.data[2] = float_vel - joint3[1];
+		vel_arm.data[3] = float_vel - joint4[1];
+		vel_arm.data[4] = float_vel - joint5[1];
+		vel_arm.data[5] = float_vel - joint3[1];
 		
 		arm.header.stamp = ros::Time::now();
 
 		arm_pub.publish(arm);
 		vel_pub.publish(vel_arm);
-		if(count_simple >= 2000){
+		if(count_simple >= 3000){
 			stopSimulation.publish(stopSim);
 			break;
 		}

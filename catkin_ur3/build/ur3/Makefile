@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+ur3/CMakeFiles/send_vel.dir/rule:
+	cd /home/rafael/VrepUR3/catkin_ur3/build && $(MAKE) -f CMakeFiles/Makefile2 ur3/CMakeFiles/send_vel.dir/rule
+.PHONY : ur3/CMakeFiles/send_vel.dir/rule
+
+# Convenience name for target.
+send_vel: ur3/CMakeFiles/send_vel.dir/rule
+
+.PHONY : send_vel
+
+# fast build rule for target.
+send_vel/fast:
+	cd /home/rafael/VrepUR3/catkin_ur3/build && $(MAKE) -f ur3/CMakeFiles/send_vel.dir/build.make ur3/CMakeFiles/send_vel.dir/build
+.PHONY : send_vel/fast
+
+# Convenience name for target.
 ur3/CMakeFiles/ur3_generate_messages_nodejs.dir/rule:
 	cd /home/rafael/VrepUR3/catkin_ur3/build && $(MAKE) -f CMakeFiles/Makefile2 ur3/CMakeFiles/ur3_generate_messages_nodejs.dir/rule
 .PHONY : ur3/CMakeFiles/ur3_generate_messages_nodejs.dir/rule
@@ -959,6 +974,33 @@ src/read_data.cpp.s:
 	cd /home/rafael/VrepUR3/catkin_ur3/build && $(MAKE) -f ur3/CMakeFiles/interface.dir/build.make ur3/CMakeFiles/interface.dir/src/read_data.cpp.s
 .PHONY : src/read_data.cpp.s
 
+src/send_vel.o: src/send_vel.cpp.o
+
+.PHONY : src/send_vel.o
+
+# target to build an object file
+src/send_vel.cpp.o:
+	cd /home/rafael/VrepUR3/catkin_ur3/build && $(MAKE) -f ur3/CMakeFiles/send_vel.dir/build.make ur3/CMakeFiles/send_vel.dir/src/send_vel.cpp.o
+.PHONY : src/send_vel.cpp.o
+
+src/send_vel.i: src/send_vel.cpp.i
+
+.PHONY : src/send_vel.i
+
+# target to preprocess a source file
+src/send_vel.cpp.i:
+	cd /home/rafael/VrepUR3/catkin_ur3/build && $(MAKE) -f ur3/CMakeFiles/send_vel.dir/build.make ur3/CMakeFiles/send_vel.dir/src/send_vel.cpp.i
+.PHONY : src/send_vel.cpp.i
+
+src/send_vel.s: src/send_vel.cpp.s
+
+.PHONY : src/send_vel.s
+
+# target to generate assembly for a file
+src/send_vel.cpp.s:
+	cd /home/rafael/VrepUR3/catkin_ur3/build && $(MAKE) -f ur3/CMakeFiles/send_vel.dir/build.make ur3/CMakeFiles/send_vel.dir/src/send_vel.cpp.s
+.PHONY : src/send_vel.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -970,6 +1012,7 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... test"
+	@echo "... send_vel"
 	@echo "... ur3_generate_messages_nodejs"
 	@echo "... ur3_genlisp"
 	@echo "... ur3_generate_messages_lisp"
@@ -1027,6 +1070,9 @@ help:
 	@echo "... src/read_data.o"
 	@echo "... src/read_data.i"
 	@echo "... src/read_data.s"
+	@echo "... src/send_vel.o"
+	@echo "... src/send_vel.i"
+	@echo "... src/send_vel.s"
 .PHONY : help
 
 

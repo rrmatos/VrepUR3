@@ -285,6 +285,19 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named send_vel
+
+# Build rule for target.
+send_vel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 send_vel
+.PHONY : send_vel
+
+# fast build rule for target.
+send_vel/fast:
+	$(MAKE) -f ur3/CMakeFiles/send_vel.dir/build.make ur3/CMakeFiles/send_vel.dir/build
+.PHONY : send_vel/fast
+
+#=============================================================================
 # Target rules for targets named ur3_generate_messages_nodejs
 
 # Build rule for target.
@@ -943,6 +956,7 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... send_vel"
 	@echo "... ur3_generate_messages_nodejs"
 	@echo "... ur3_genlisp"
 	@echo "... ur3_generate_messages_lisp"

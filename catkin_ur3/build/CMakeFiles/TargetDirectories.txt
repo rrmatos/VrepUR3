@@ -40,6 +40,7 @@
 /home/rafael/VrepUR3/catkin_ur3/build/ur3/CMakeFiles/install.dir
 /home/rafael/VrepUR3/catkin_ur3/build/ur3/CMakeFiles/list_install_components.dir
 /home/rafael/VrepUR3/catkin_ur3/build/ur3/CMakeFiles/test.dir
+/home/rafael/VrepUR3/catkin_ur3/build/ur3/CMakeFiles/send_vel.dir
 /home/rafael/VrepUR3/catkin_ur3/build/ur3/CMakeFiles/ur3_generate_messages_nodejs.dir
 /home/rafael/VrepUR3/catkin_ur3/build/ur3/CMakeFiles/ur3_genlisp.dir
 /home/rafael/VrepUR3/catkin_ur3/build/ur3/CMakeFiles/ur3_generate_messages_lisp.dir

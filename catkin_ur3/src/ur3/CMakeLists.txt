@@ -215,8 +215,13 @@ include_directories(
 
 
 add_library(read_data SHARED src/read_data.cpp include/ur3/read_data.h)
+
 install(TARGETS read_data DESTINATION lib)
 install(FILES src/read_data.h DESTINATION include)
 
 add_executable(interface src/interface.cpp src/read_data.cpp)
+
 target_link_libraries(interface read_data ${catkin_LIBRARIES})
+
+add_executable(send_vel src/send_vel.cpp)
+target_link_libraries(send_vel ${catkin_LIBRARIES})
