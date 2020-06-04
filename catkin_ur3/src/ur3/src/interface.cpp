@@ -151,6 +151,8 @@ int main(int argc, char **argv){
 		vel_arm.data[4] = float_vel - joint5[1];
 		vel_arm.data[5] = float_vel - joint3[1];
 		
+
+		
 		arm.header.stamp = ros::Time::now();
 
 		arm_pub.publish(arm);
